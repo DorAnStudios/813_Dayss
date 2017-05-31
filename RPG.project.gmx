@@ -20,7 +20,7 @@
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
-    <object>objects\object2</object>
+    <object>objects\obj_view</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\ro_room1</room>
