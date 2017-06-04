@@ -1,40 +1,57 @@
 ///scr_move_state
 scr_get_input();
 
-// RİGHT
-if (right_key) {
-    phy_position_x += spd
-    sprite_index = spr_player_r
-    image_speed = .28
-    }
-    
-//LEFT    
-if (left_key) {
-    phy_position_x -= spd
-    sprite_index = spr_player_l
-    image_speed = .28
-    }
-        
+// Get the axis
 
-//UP    
-if (up_key) {
-    phy_position_y -= spd
-    sprite_index = spr_player_u
-    image_speed = .28
-        }
+var xaxis = (right_key - left_key)
+var yaxis = (down_key - up_key)
 
-//DOWM    
-if (down_key) {
-    phy_position_y += spd
+// Get direction
+
+var dir = point_direction(0,0, xaxis,yaxis)
+
+//Get lenght
+
+if (xaxis == 0 and yaxis == 0) {
+    len = 0
+}
+    else {
+        len = spd
+    }
+
+// getting h and v spd
+
+hspd = xaxis * spd
+vspd = lengthdir_y(len,dir) //üsttekiyle aynı
+
+// Move
+
+phy_position_x += hspd
+phy_position_y += vspd
+
+//Control the sprite
+
+image_speed = sign(len) * .2 //sign 1 ya da -1 verir
+
+if(len == 0) image_index = 0
+
+// Vertical sprite
+
+if (vspd > 0) {
     sprite_index = spr_player_d
-    image_speed = .28
-        }
-        
-//STOP ANIMATE
-if (!down_key and !up_key and !left_key and !right_key)  {
-    image_speed = 0
-    image_index = 0
-
 }
 
-                
+else if (vspd < 0) {
+    sprite_index = spr_player_u
+}
+
+// Horizanal sprites
+
+if (hspd > 0) {
+    sprite_index = spr_player_r
+}
+
+if (hspd < 0) {
+    sprite_index = spr_player_l
+}
+
