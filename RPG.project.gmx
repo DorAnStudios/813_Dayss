@@ -14,9 +14,17 @@
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\npc</sprite>
     <sprite>sprites\sprite7</sprite>
+    <sprite>sprites\spr_player_s</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_grass</background>
+  </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_get_input.gml</script>
+    <script>scripts\scr_move_state.gml</script>
+    <script>scripts\scr_frozen_state.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
